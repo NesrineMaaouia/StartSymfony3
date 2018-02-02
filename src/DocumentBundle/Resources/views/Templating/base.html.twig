@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset=UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bibliotheque</title>
+        <base href="/">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+    </head>
+    <body>
+        <header>
+            <h1>Bibliotheque de Nesrine</h1>
+        </header>
+        <main>
+            {% block ariane %}
+            {% endblock %}
+            {% block principale %}
+                <p style="color: red">Notice de présentation (Block etendu)</p>
+            {% endblock %}
+        </main>
+        <footer>
+            <nav>
+                <ul>
+                    <li>Catalogue</li>
+                    <li>Information</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

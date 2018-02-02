@@ -1,0 +1,13 @@
+document:
+    resource: "@DocumentBundle/Resources/config/routing.xml"
+    prefix:   /
+import:
+    resource: "@DocumentBundle/Resources/config/import.xml"
+    prefix:   import
+templating:
+    resource: "@DocumentBundle/Resources/config/templating.xml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

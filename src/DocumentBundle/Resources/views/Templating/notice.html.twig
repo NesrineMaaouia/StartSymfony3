@@ -1,0 +1,57 @@
+{% extends "DocumentBundle:Templating:base.html.twig"%}
+
+{% block ariane %}
+    {#    <a href="{{ path('homepage') }}">Acceuil ></a> {{ notice.Clefs[0] }} > <a href="{{ path('document_notice', {'id', 45455 } ) }}">{{notice.titre}} ></a>#}
+    <a href="{{ path('homepage') }}">Acceuil ></a> {{ notice.Clefs[0] }} > <a href="{{ path('document_notice', {'id' : '1222' }) }}"> {{notice.titre}} ></a>
+{% endblock %}
+
+{# Page affichant le contenu d'une notice #}
+{% block message %}$
+    <p>Text n'est pas définit dans base.twig</p>
+{% endblock %}
+
+{% block principale %}
+
+    {{ parent() }}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="conteneur-notice">
+                    {{notice.titre}}
+                </h1>
+
+
+                <table class="element-notice">
+                    {% for etiquette,propriete in notice %}
+                        <tr>
+                            <td class="label">{{etiquette|upper}}</td>
+                            <td class="information">
+                                {% if propriete is not iterable %}
+                                    {{propriete}}
+                                {%else%}
+                                    {{propriete |join('-')|upper}}
+                                    {# equivalent à :
+                                       {% for p in propriete %}
+                                         <span>p</span>
+                                       {% endfor %}
+                                    #}
+                                {% endif %}
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-4">
+                {%include 'DocumentBundle:Templating:widget.html.twig' with {'titre_widget':'Accès'} %}
+            </div>
+
+        </div>
+    </div>
+    <div class="barre-laterale">
+        <nav class="menu menu-notice">
+
+        </nav>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "DocumentBundle:Templating:base.html.twig"%}
+{% block ariane %}
+    {#    <a href="{{ path('homepage') }}">Acceuil ></a> {{ notice.Clefs[0] }} > <a href="{{ path('document_notice', {'id', 45455 } ) }}">{{notice.titre}} ></a>#}
+    <a href="{{ path('homepage') }}">Acceuil ></a> <a href="{{ path('document_notice', {'id' : '1222' }) }}">Bibliotheque ></a>
+{% endblock %}
+
+
+{% block principale %}
+    Hello World homepage!
+{% endblock  %}

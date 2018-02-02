@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="document_homepage" path="/">
+        <default key="_controller">DocumentBundle:Default:index</default>
+        <default key="_format">text</default>
+    </route>
+    <route id="document_homepage_fr" path="/{locale}/hello.{_format}">
+        <default key="_controller">DocumentBundle:Default:index</default>
+        <default key="_format">json</default>
+    </route>
+    
+    <route id="document_vars" path="/bye/{prenom}/{nom}">
+        <default key="_controller">DocumentBundle:Default:vars</default>
+        <default key="nom">Nesrine</default>
+        <default key="prenom">Maaouia</default>
+        <requirement key="nom">[A-Z]+</requirement>
+        <requirement key="prenom">[A-Z][a-z]+</requirement>
+    </route>
+    
+    <route id="document_vars" path="/bye/{prenom}/{nom}" methods="GET">
+        <default key="_controller">DocumentBundle:Default:vars</default> 
+    </route>
+   
+    <route id="document_divise" path="/divise/{nombre}/{diviseur}">
+        <default key="_controller">DocumentBundle:Document:divise</default> 
+    </route>
+    
+    <route id="document_message" path="/message">
+        <default key="_controller">DocumentBundle:Document:message</default> 
+    </route>
+    <route id="document_parameters" path="/parameters">
+        <default key="_controller">DocumentBundle:Document:requestParameters</default> 
+    </route>
+    
+    <route id="document_redirect" path="/redirect/{url}">
+        <default key="_controller">DocumentBundle:Document:redirect</default>
+        <default key="url">homepage</default> 
+    </route>
+    
+    <route id="document_redirectToRoute" path="/redirect-to-parameters">
+        <default key="_controller">DocumentBundle:Document:redirectToRoute</default>
+    </route>
+    
+    <route id="document_forwardDivise" path="/forward-to-divise/{nombre}">
+        <default key="_controller">DocumentBundle:Document:forwardDivise</default>
+    </route>
+    <route id="document_error403" path="/interdit">
+        <default key="_controller">DocumentBundle:Document:error403</default>
+    </route>
+    
+     <route id="document_error" path="/goto/{route}">
+        <default key="_controller">DocumentBundle:Document:error</default>
+    </route>
+    <route id="document_parametersDivise" path="/parameters/{nombre}">
+        <default key="_controller">DocumentBundle:Document:parametersDivise</default>
+    </route>
+</routes>

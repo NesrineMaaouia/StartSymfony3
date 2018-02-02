@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Test vars !</h1>
+
+   Nom et Prenom : <p>{{ app.request.get('nom')}} {{ app.request.get('prenom')}}</p>
+   Age: <p>{{ app.request.get('age')}}</p>
+
+{% endblock %}
